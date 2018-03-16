@@ -1,18 +1,17 @@
 <template>
-  <a href="javascript:" class="mui-btn"
-  :class="{'mui-btn-disabled': disabled,
-    'mui-btn-mini': mini,
-    'mui-btn-transparent': transparent,
-    'mui-btn-default': type === 'default',
-    'mui-btn-brand': type === 'brand',
-    'mui-btn-primary': type === 'primary',
-    'mui-btn-warn': type === 'warn',
-    'mui-btn-dangerous': type === 'dangerous'
+  <a href="javascript:" class="c-btn"
+  :class="{'c-btn-disabled': disabled,
+    'c-btn-mini': mini,
+    'c-btn-transparent': transparent,
+    'c-btn-default': type === 'default',
+    'c-btn-brand': type === 'brand',
+    'c-btn-primary': type === 'primary',
   }"><slot>{{ text }}</slot></a>
 </template>
 
 <script>
 export default {
+  name:'cButton',
   props: {
     type: {
       type: String,

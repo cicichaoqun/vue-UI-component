@@ -1,0 +1,29 @@
+@tagHeight:15px;
+@tagLineHeight: 15px;
+@tagFontSize:10px;
+
+@tagDefaultBg:#E90039;
+@tagRedBg:#E90039;
+@tagGrayBg:#dddddd;
+
+.c-tag {
+    display: inline-block;
+    vertical-align: top;
+    height: @tagHeight;
+    line-height: @tagLineHeight;
+    padding: 0 2px;
+    min-width: 30px;
+    margin-left: 5px;
+    font-size: @tagFontSize;
+    color: @tagDefaultBg;
+    letter-spacing: 0;
+    border: 1px solid @tagDefaultBg;
+}
+.c-tag-red{
+    color: @tagRedBg;
+    border: 1px solid @tagRedBg;
+}
+.c-tag-gray{
+    color: @tagGrayBg;
+    border: 1px solid @tagGrayBg;
+}

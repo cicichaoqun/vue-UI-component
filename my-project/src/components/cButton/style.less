@@ -1,0 +1,155 @@
+//
+// Variables
+// ---------------------
+@cBtnDefaultGap:15px;
+@cMiniBtnDefaultGap:5px;
+@cBtnHeight:47px;
+@cBtnMiniHeight:2.3333333;
+@cBtnFontSize:18px;
+@cBtnFontColor:#FFFFFF;
+@cBtnfontWeight:700;
+@cBtnDisabledFontColor:rgba(255,255,255,.6);
+@cBtnActiveFontColor:rgba(255,255,255,.4);
+@cBtnMiniFontSize:12px;
+@cBtnBorderRadius:2px;
+
+@cBtnDefaultBg:#F7F7F7;
+@cBtnDefaultActiveBg:#DEDEDE;
+@cBtnDefaultFontColor:#454545;
+@cBtnDefaultDisabledFontColor:#C9C9C9;
+@cBtnDefaultActiveFontColor:#A1A1A1;
+
+@cBtnBrandBg:#1A1A1A;
+@cBtnBrandActiveBg:#1A1A1A;
+
+@cBtnPrimaryBg:#E90039;
+@cBtnPrimaryActiveBg:#E90039;
+
+//
+// Mixins
+// ---------------------
+.setTapColor(@c:rgba(0,0,0,0)) {
+    -webkit-tap-highlight-color: @c;
+}
+
+//
+// Base style
+// ---------------------
+.c-btn {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 14px;
+    padding-right: 14px;
+    box-sizing: border-box;
+    font-size: @cBtnFontSize;
+    font-weight: @cBtnfontWeight;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    line-height: unit(@cBtnHeight/@cBtnFontSize);
+    border-radius: @cBtnBorderRadius;
+    .setTapColor();
+    overflow: hidden;
+    &:after {
+        content: " ";
+        width: 200%;
+        height: 200%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 1px solid rgba(0, 0, 0, .2);
+        transform: scale(.5);
+        transform-origin: 0 0;
+        box-sizing: border-box;
+        border-radius: @cBtnBorderRadius*2;
+    }
+    &+.c-btn {
+        margin-top: @cBtnDefaultGap;
+    }
+
+    &.c-btn-inline {
+        display: inline-block;
+    }
+    &.c-btn-mini {
+        line-height: @cBtnMiniHeight;
+        font-size: @cBtnMiniFontSize;
+        padding: 0 1.3em;
+        display: inline-block;
+        &+.c-btn-mini {
+            margin-top: 0;
+            margin-left: @cMiniBtnDefaultGap;
+        }
+    }
+}
+
+.c-btn-default {
+  background-color: @cBtnDefaultBg;
+  color: @cBtnDefaultFontColor;
+  &:not(.c-btn-disabled):visited {
+    color: @cBtnDefaultFontColor;
+  }
+  &:not(.c-btn-disabled):active {
+    color: @cBtnDefaultActiveFontColor;
+    background-color: @cBtnDefaultActiveBg;
+  }
+}
+.c-btn-brand {
+  background-color: @cBtnBrandBg;
+  &:not(.c-btn-disabled):visited {
+    color: @cBtnFontColor;
+  }
+  &:not(.c-btn-disabled):active {
+    color: @cBtnActiveFontColor;
+    background-color: @cBtnBrandActiveBg;
+  }
+}
+.c-btn-primary {
+  background-color: @cBtnPrimaryBg;
+  &:not(.c-btn-disabled):visited {
+    color: @cBtnFontColor;
+  }
+  &:not(.c-btn-disabled):active {
+    color: @cBtnActiveFontColor;
+    background-color: @cBtnPrimaryActiveBg;
+  }
+}
+
+.c-btn-disabled {
+  color: @cBtnDisabledFontColor;
+  &.c-btn-default {
+    color: @cBtnDefaultDisabledFontColor;
+  }
+}
+
+.c-btn-transparent {
+  background-color: transparent;
+  &:not(.c-btn-disabled):active {
+    background-color: @cBtnDefaultActiveBg;
+  }
+  &.c-btn-default {
+    color: @cBtnDefaultFontColor;
+    &:not(.c-btn-disabled):active {
+      color: @cBtnDefaultFontColor;
+    }
+  }
+  &.c-btn-brand {
+    color: @cBtnBrandBg;
+    &::after {
+      border: 1px solid @cBtnBrandBg;
+    }
+    &:not(.c-btn-disabled):active {
+      color: @cBtnBrandBg;
+    }
+  }
+  &.c-btn-primary {
+    color: @cBtnPrimaryBg;
+    &::after {
+      border: 1px solid @cBtnPrimaryBg;
+    }
+    &:not(.c-btn-disabled):active {
+      color: @cBtnPrimaryBg;
+    }
+  }
+}

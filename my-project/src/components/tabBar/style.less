@@ -1,0 +1,38 @@
+@tabBarBg:#fff;
+@tabBarBorderColor:#ddd;
+@tabBarHeight:53px;
+
+@tabIconWidth:27px;
+@tabIconHeight:27px;
+
+@tabTxtDefaultColor:#1A1A1A;
+@tabTxtActivityColor:#CF007F;
+@tabTxtFontSize:10px;
+@tabTxtLineHeight:15px;
+
+.tabBar{ 
+  height: @tabBarHeight; 
+  width: 100%; 
+  padding-top: 5px;
+  box-sizing: border-box;
+  position: fixed; 
+  bottom:0;
+  display: flex;
+  background: @tabBarBg;
+  border-top: 1px solid @tabBarBorderColor;
+}
+.tab-item{ 
+  flex: 1; 
+}
+.tab-icon{ 
+  width: @tabIconWidth; 
+  height: @tabIconHeight; 
+}
+.item-txt{ 
+  color: @tabTxtDefaultColor;
+  font-size: @tabTxtFontSize;
+  line-height: @tabTxtLineHeight;
+}
+.activity .item-txt{ 
+  color: @tabTxtActivityColor; 
+}

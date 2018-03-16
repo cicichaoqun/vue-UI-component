@@ -1,21 +1,33 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import cButton from '@/components/cButton'
+import cButton from '@/demo/cButton'
+import cHeader from '@/demo/cHeader'
+import cTag from '@/demo/cTag'
+import tabBar from '@/demo/tabBar'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
       path: '/cButton',
       name: 'cButton',
       component: cButton
+    },
+    {
+      path: '/cHeader',
+      name: 'cHeader',
+      component: cHeader
+    },
+    {
+      path: '/cTag',
+      name: 'cTag',
+      component: cTag
+    },
+    {
+      path: '/tabBar',
+      name: 'tabBar',
+      component: tabBar
     }
   ]
 })
