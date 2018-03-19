@@ -1,20 +1,8 @@
 <template>
 <div>
-  <group title="Toast">
-    <group-item
-    title="loading"
-    right-desc="点击出弹窗"
-    @click="triggerLoadingToast"></group-item>
-    <group-item
-    title="warning"
-    right-desc="点击出弹窗"
-    @click="triggerWarningToast"></group-item>
-    <group-item
-    title="success"
-    right-desc="点击出弹窗"
-    @click="triggerSuccessToast"></group-item>
-  </group>
-
+    <group-item title="loading" right-desc="点击出弹窗" @click.native="triggerLoadingToast"></group-item>
+    <group-item title="warning" right-desc="点击出弹窗" @click.native="triggerWarningToast"></group-item>
+    <group-item title="success" right-desc="点击出弹窗" @click.native="triggerSuccessToast"></group-item>
   <toast
   :show="loadingToast.show"
   :text="loadingToast.text"></toast>
@@ -30,23 +18,16 @@
 </template>
 
 <script>
-import { Toast, Group, GroupItem } from '../components/'
+import Toast from '../components/Toast/index.vue'
+import group from '../components/group/index.vue'
+import groupItem from '../components/group-item/index.vue'
 export default {
   components: {
     Toast,
-    Group,
-    GroupItem
+    group,
+    groupItem
   },
-  methods: {
-    triggerLoadingToast () {
-      this.loadingToast.show = !this.loadingToast.show
-    },
-    triggerWarningToast () {
-      this.warningToast.show = !this.warningToast.show
-    },
-    triggerSuccessToast () {
-      this.successToast.show = !this.successToast.show
-    }
+  mounted(){
   },
   data () {
     return {
@@ -63,6 +44,17 @@ export default {
         type: 'success',
         text: '操作成功'
       }
+    }
+  },
+  methods: {
+    triggerLoadingToast:function() {
+      this.loadingToast.show = !this.loadingToast.show
+    },
+    triggerWarningToast () {
+      this.warningToast.show = !this.warningToast.show
+    },
+    triggerSuccessToast () {
+      this.successToast.show = !this.successToast.show
     }
   }
 }

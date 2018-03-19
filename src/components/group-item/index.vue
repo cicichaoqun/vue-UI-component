@@ -1,4 +1,5 @@
 <template>
+<router-link :to="link" :tag="link?'a':'div'">
 <div class="mui-group-item" :class="{'no-access': !access}">
   <div class="mui-group-item-hd">
     <slot name="hd">
@@ -15,11 +16,13 @@
     </slot>
   </div>
 </div>
+</router-link>
 </template>
 
 <script>
-import InlineDesc from '../inline-desc/'
+import InlineDesc from '../inline-desc/index.vue'
 export default {
+  name:'groupItem',
   components: {
     InlineDesc
   },
@@ -27,6 +30,10 @@ export default {
     title: String,
     inlineDesc: String,
     rightDesc: String,
+    link:{
+      type:String,
+      default:''
+    },
     withArrow: {
       type: Boolean,
       default: true

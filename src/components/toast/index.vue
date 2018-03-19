@@ -6,7 +6,7 @@
     'mui-warning-toast': type === 'warning'
   }"
   v-show="show">
-    <div class="mui-mask-transparent" v-el:mask></div>
+    <div class="mui-mask-transparent" ref="mask"></div>
     <div class="mui-toast">
       <i class="mui-icon-toast" v-if="!(type === 'loading')"></i>
       <div class="mui-loading" v-if="(type === 'loading')">
@@ -59,7 +59,7 @@ export default {
     }
   },
   beforeDestroy () {
-    this.$el && this.$el.parentNode && this.$el.parentNode.removeChild(this.$el)
+    this.$refs && this.$refs.parentNode && this.$refs.parentNode.removeChild(this.$refs)
   }
 }
 </script>
